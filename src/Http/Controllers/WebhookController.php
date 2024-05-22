@@ -33,10 +33,70 @@ class WebhookController extends BaseController
         } catch (\Throwable $th) {
             return response()->json([
                 'error' => [
-                    'message' => $th->getMessage(),
-                    'code' => $th->getCode(),
+                    'message' => $th->getMessage()
                 ]
+            ], ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function get()
+    {
+        try {
+            return response()->json(
+                FilamentWebhookServer::all(),
+                ResponseAlias::HTTP_OK
+            );
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => [
+                    'message' => $th->getMessage()
+                ]
+            ], ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'name' => ['sometimes', 'required', 'string'],
+                'description' => ['sometimes', 'required', 'string'],
+                'url' => ['sometimes', 'required', 'string'],
+                'method' => ['sometimes', 'required', 'string', 'in:get,post'],
+                'model' => ['sometimes', 'required', 'string'],
+                'header' => ['sometimes', 'required', 'string'],
+                'data_option' => ['sometimes', 'required', 'string', 'in:all,summary,custom'],
+                'verifySsl' => ['sometimes', 'required', 'boolean'],
+                'events' => ['sometimes', 'required', 'array'],
+                'events.*' => ['sometimes', 'required', 'string', 'min:1', 'in:created,updated,deleted,restored,forceDeleted'],
             ]);
+
+            $webhook = FilamentWebhookServer::findOrFail($id);
+            $webhook->update($request->all());
+
+            return response()->json(['message' => 'Webhook updated!'],ResponseAlias::HTTP_OK);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => [
+                    'message' => $th->getMessage()
+                ]
+            ], ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            $webhook = FilamentWebhookServer::findOrFail($id);
+            $webhook->delete();
+
+            return response()->json(['message' => 'Webhook deleted!'], ResponseAlias::HTTP_OK);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => [
+                    'message' => $th->getMessage()
+                ]
+            ], ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 }
