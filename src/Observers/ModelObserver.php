@@ -12,8 +12,6 @@ class ModelObserver
 {
     public function created(Model $model)
     {
-//        $modelInfo = ModelInfo::forModel($model::class);
-//        $module = ucfirst(str_replace("App\Models\\", '', $modelInfo->class));
         $module = ucfirst((new RC($model))->getShortName());
         /*
          * Search on the DB that want to receive webhook from this model
