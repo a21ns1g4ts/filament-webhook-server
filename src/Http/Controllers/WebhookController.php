@@ -20,7 +20,8 @@ class WebhookController extends BaseController
             'header' => ['sometimes', 'required', 'string'],
             'data_option' => ['required', 'string', 'in:all,summary,custom'],
             'verifySsl' => ['required', 'boolean'],
-            'events' => ['required', 'array', 'in:created,updated,deleted,restored,forceDeleted'],
+            'events' => ['required', 'array'],
+            'events.*' => ['required', 'string', 'min:1', 'in:created,updated,deleted,restored,forceDeleted'],
         ]);
 
         try {
@@ -30,7 +31,12 @@ class WebhookController extends BaseController
                 'webhook_id' => $webhook->id,
             ], ResponseAlias::HTTP_CREATED);
         } catch (\Throwable $th) {
-            throw $th;
+            return response()->json([
+                'error' => [
+                    'message' => $th->getMessage(),
+                    'code' => $th->getCode(),
+                ]
+            ]);
         }
     }
 }
