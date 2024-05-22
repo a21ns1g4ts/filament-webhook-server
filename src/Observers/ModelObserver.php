@@ -5,14 +5,14 @@ namespace Marjose123\FilamentWebhookServer\Observers;
 use Illuminate\Database\Eloquent\Model;
 use Marjose123\FilamentWebhookServer\HookJobProcess;
 use Marjose123\FilamentWebhookServer\Models\FilamentWebhookServer;
+use ReflectionClass as RC;
 use Spatie\ModelInfo\ModelInfo;
 
 class ModelObserver
 {
     public function created(Model $model)
     {
-        $modelInfo = ModelInfo::forModel($model::class);
-        $module = ucfirst(str_replace("App\Models\\", '', $modelInfo->class));
+        $module = ucfirst((new RC($model))->getShortName());
         /*
          * Search on the DB that want to receive webhook from this model
          */

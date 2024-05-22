@@ -2,6 +2,20 @@
 
 All notable changes to `filament-webhook-server` will be documented in this file.
 
+## 2.1.0 - 2024-05-22
+
+### What's Changed
+
+* Support multilevel models by @0xCyyy3000 in https://github.com/MarJose123/filament-webhook-server/pull/25
+* Laravel 11 Compatibility by @0xCyyy3000 in https://github.com/MarJose123/filament-webhook-server/pull/24
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/MarJose123/filament-webhook-server/pull/23
+
+### New Contributors
+
+* @0xCyyy3000 made their first contribution in https://github.com/MarJose123/filament-webhook-server/pull/25
+
+**Full Changelog**: https://github.com/MarJose123/filament-webhook-server/compare/2.0.1...2.1.0
+
 ## 2.0.1 - 2024-02-21
 
 ### What's Changed
@@ -87,6 +101,7 @@ return [
 
 
 
+
 ```
 - Republish and run the migrations with:
 
@@ -98,9 +113,11 @@ php artisan vendor:publish --tag="filament-webhook-server-migrations"
 
 
 
+
 ```
 ```bash
 php artisan migrate
+
 
 
 
