@@ -5,7 +5,7 @@ namespace Marjose123\FilamentWebhookServer\Observers;
 use Illuminate\Database\Eloquent\Model;
 use Marjose123\FilamentWebhookServer\HookJobProcess;
 use Marjose123\FilamentWebhookServer\Models\FilamentWebhookServer;
-use ReflectionClass;
+use \ReflectionClass;
 use Spatie\ModelInfo\ModelInfo;
 
 class ModelObserver
