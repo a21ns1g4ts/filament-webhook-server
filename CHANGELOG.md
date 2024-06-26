@@ -2,6 +2,14 @@
 
 All notable changes to `filament-webhook-server` will be documented in this file.
 
+## 2.1.2 - 2024-06-26
+
+### What's Changed
+
+* Update composer.json by @MarJose123 in https://github.com/MarJose123/filament-webhook-server/pull/27
+
+**Full Changelog**: https://github.com/MarJose123/filament-webhook-server/compare/2.1.1...2.1.2
+
 ## 2.1.1 - 2024-05-22
 
 ### What's Changed
@@ -111,6 +119,7 @@ return [
 
 
 
+
 ```
 - Republish and run the migrations with:
 
@@ -124,9 +133,11 @@ php artisan vendor:publish --tag="filament-webhook-server-migrations"
 
 
 
+
 ```
 ```bash
 php artisan migrate
+
 
 
 
