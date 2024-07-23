@@ -28,7 +28,7 @@ class Webhooks extends Page implements HasTable
 
     public static function getNavigationIcon(): string
     {
-        return config('filament-webhook-server.navigation.icon');
+        return config('filament-webhook-server.navigation.icon') ?? 'heroicon-s-arrow-up-on-square-stack';
     }
 
     protected static string $view = 'filament-webhook-server::pages.webhooks';
@@ -240,7 +240,7 @@ class Webhooks extends Page implements HasTable
 
     protected function getTableEmptyStateIcon(): ?string
     {
-        return config('filament-webhook-server.navigation.icon');
+        return config('filament-webhook-server.navigation.icon') ?? 'heroicon-s-arrow-up-on-square-stack';
     }
 
     protected function getTableEmptyStateHeading(): ?string
