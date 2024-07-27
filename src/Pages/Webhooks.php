@@ -9,6 +9,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
@@ -99,7 +100,7 @@ class Webhooks extends Page implements HasTable
         return [Grid::make(1)->schema(
             [
                 TextInput::make('name')->minLength(2)->maxLength(255)->required(),
-                TextInput::make('description'),
+                Textarea::make('description')->required(),
                 TextInput::make('url')->label('Url to Notify')->url()->required(),
                 Select::make('method')->options(
                     [
@@ -148,7 +149,7 @@ class Webhooks extends Page implements HasTable
         return [Grid::make(1)->schema(
             [
                 TextInput::make('name')->minLength(2)->maxLength(255)->required(),
-                TextInput::make('description')->required(),
+                Textarea::make('description')->required(),
                 TextInput::make('url')->label('Url to Notify')->url()->required(),
                 Select::make('method')->options(
                     [
