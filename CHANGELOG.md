@@ -2,6 +2,19 @@
 
 All notable changes to `filament-webhook-server` will be documented in this file.
 
+## 2.1.3 - 2024-07-28
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/MarJose123/filament-webhook-server/pull/28
+* Remove icon composer package by @Poseidon281 in https://github.com/MarJose123/filament-webhook-server/pull/31
+
+### New Contributors
+
+* @Poseidon281 made their first contribution in https://github.com/MarJose123/filament-webhook-server/pull/31
+
+**Full Changelog**: https://github.com/MarJose123/filament-webhook-server/compare/2.1.2...2.1.3
+
 ## 2.1.2 - 2024-06-26
 
 ### What's Changed
@@ -120,6 +133,7 @@ return [
 
 
 
+
 ```
 - Republish and run the migrations with:
 
@@ -134,9 +148,11 @@ php artisan vendor:publish --tag="filament-webhook-server-migrations"
 
 
 
+
 ```
 ```bash
 php artisan migrate
+
 
 
 
