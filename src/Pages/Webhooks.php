@@ -26,7 +26,10 @@ class Webhooks extends Page implements HasTable
     use helper;
     use InteractsWithTable;
 
-    protected static ?string $navigationIcon = 'gmdi-webhook';
+    public static function getNavigationIcon(): string
+    {
+        return config('filament-webhook-server.navigation.icon') ?? 'heroicon-s-arrow-up-on-square-stack';
+    }
 
     protected static string $view = 'filament-webhook-server::pages.webhooks';
 
@@ -237,7 +240,7 @@ class Webhooks extends Page implements HasTable
 
     protected function getTableEmptyStateIcon(): ?string
     {
-        return 'gmdi-webhook';
+        return config('filament-webhook-server.navigation.icon') ?? 'heroicon-s-arrow-up-on-square-stack';
     }
 
     protected function getTableEmptyStateHeading(): ?string
