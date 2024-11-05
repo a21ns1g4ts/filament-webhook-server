@@ -42,7 +42,7 @@ class FilamentWebhookServerServiceProvider extends PackageServiceProvider
         self::registerGlobalObserver();
     }
 
-    private static function registerGlobalObserver()
+    private static function registerGlobalObserver(): void
     {
         /** @var array|string[] $MODELS */
         $MODELS = config('filament-webhook-server.models', []);
