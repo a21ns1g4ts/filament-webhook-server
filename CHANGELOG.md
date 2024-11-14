@@ -2,6 +2,22 @@
 
 All notable changes to `filament-webhook-server` will be documented in this file.
 
+## 2.1.5 - 2024-11-07
+
+### What's Changed
+
+* Secure Global Observer Registration for Models by @a21ns1g4ts in https://github.com/MarJose123/filament-webhook-server/pull/33
+
+**Full Changelog**: https://github.com/MarJose123/filament-webhook-server/compare/2.1.4...2.1.5
+
+## 2.1.4 - 2024-09-22
+
+### What's Changed
+
+* Add pt translations by @a21ns1g4ts in https://github.com/MarJose123/filament-webhook-server/pull/32
+
+**Full Changelog**: https://github.com/MarJose123/filament-webhook-server/compare/2.1.3...2.1.4
+
 ## 2.1.3 - 2024-07-28
 
 ### What's Changed
@@ -134,6 +150,8 @@ return [
 
 
 
+
+
 ```
 - Republish and run the migrations with:
 
@@ -149,9 +167,13 @@ php artisan vendor:publish --tag="filament-webhook-server-migrations"
 
 
 
+
+
 ```
 ```bash
 php artisan migrate
+
+
 
 
 
