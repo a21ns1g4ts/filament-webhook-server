@@ -47,11 +47,9 @@ class FilamentWebhookServerServiceProvider extends PackageServiceProvider
         /** @var array|string[] $MODELS */
         $MODELS = config('filament-webhook-server.models', []);
 
-        foreach ($MODELS as $MODEL) {
-            foreach ($MODEL as $model) {
-                if (class_exists($model)) {
-                    $model::observe(ModelObserver::class);
-                }
+        foreach ($MODELS as $model) {
+            if (class_exists($model)) {
+                $model::observe(ModelObserver::class);
             }
         }
     }
